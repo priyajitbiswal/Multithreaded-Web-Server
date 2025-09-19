@@ -10,7 +10,7 @@ public class Server {
     public Consumer<Socket> getConsumer() {
         return (clientSocket) -> {
             try (BufferedReader fromClient = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
-                    PrintWriter toClient = new PrintWriter(clientSocket.getOutputStream(), true)) {
+                 PrintWriter toClient = new PrintWriter(clientSocket.getOutputStream(), true)) {
                 String clientMessage = fromClient.readLine();
                 System.out.println("Received from Client: " + clientMessage);
                 toClient.println("Hello from server " + clientSocket.getInetAddress());
